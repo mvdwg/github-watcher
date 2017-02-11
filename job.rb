@@ -1,15 +1,11 @@
-require 'octokit'
-require 'models'
+require './models'
+require './client'
 
 class Job
   def self.perform
     Alert.all.each do |alert|
-      repository = "#{alert.owner}/#{alert.repo}"
-
-      result = Octokit.ref(repository, "heads/#{alert.branch}")
-      current_sha = result.object.sha
-
-      commits = Octokit.compare(repository, alert.last_sha, current_sha)
+      current_sha = Client.head_sha(alert.owner, alert.repo, alert.branch)
+      commits = Client.compare(alert.owner, alert.repo, alert.last_sha, current_sha)
 
       if commits.files.any?{|file| file.filename == alert.path }
         Alarm.create(
