@@ -8,6 +8,7 @@ class Alert < Sequel::Model
   # branch
   # path
   # user_id
+  one_to_many :alarms
 end
 
 class Alarm < Sequel::Model
@@ -20,4 +21,5 @@ end
 class User < Sequel::Model
   # github_id
   # github_login
+  one_to_many :alerts
 end

@@ -1,14 +1,38 @@
-<h1> Users </h1>
-<% @users.each do |user| %>
-  <p><%= user.values %> </p>
-<% end %>
+<p> Logged user: <%= @current_user.github_login %> </p>
+
+<h1> New Alert </h1>
+<form action="/alerts" method="post">
+  <div>
+    <label> Owner:
+      <input type"text" name="owner">
+    </label>
+  </div>
+  <div>
+    <label> Repo:
+      <input type"text" name="repo">
+    </label>
+  </div>
+  <div>
+    <label> Branch:
+      <input type"text" name="branch">
+    </label>
+  </div>
+  <div>
+    <label> Path:
+      <input type"text" name="path">
+    </label>
+  </div>
+  <input type="submit">
+</form>
 
 <h1> Alerts </h1>
-<% @alerts.each do |alert| %>
+<% @current_user.alerts.each do |alert| %>
   <p><%= alert.values %> </p>
-<% end %>
+  <% if alert.alarms.any? %>
+    <h2> Alarms </h2>
 
-<h1> Alarms </h1>
-<% @alarms.each do |alarm| %>
-  <p><%= alarm.values %> </p>
+    <% alert.alarms.each do |alarm| %>
+      <p><%= alarm.values %> </p>
+    <% end %>
+  <% end %>
 <% end %>

@@ -13,10 +13,6 @@ use OmniAuth::Strategies::GitHub, ENV["CLIENT_ID"], ENV["CLIENT_SECRET"]
 
 get '/' do
   if authenticated?
-    @alerts = Alert.all
-    @alarms = Alarm.all
-    @users = User.all
-
     erb :index
   else
     erb :login
@@ -37,7 +33,7 @@ post '/alerts' do
 
     alert.update(last_sha: sha)
 
-    status 200
+    redirect "/"
   end
 end
 
