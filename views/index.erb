@@ -1,7 +1,13 @@
+<h1> Users </h1>
+<% @users.each do |user| %>
+  <p><%= user.values %> </p>
+<% end %>
+
 <h1> Alerts </h1>
 <% @alerts.each do |alert| %>
   <p><%= alert.values %> </p>
 <% end %>
+
 <h1> Alarms </h1>
 <% @alarms.each do |alarm| %>
   <p><%= alarm.values %> </p>

@@ -7,3 +7,7 @@ gem "pg"
 gem "sequel"
 
 gem "sinatra"
+
+gem "dotenv"
+
+gem "omniauth-github"

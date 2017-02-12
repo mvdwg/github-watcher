@@ -7,6 +7,7 @@ class Alert < Sequel::Model
   # repo
   # branch
   # path
+  # user_id
 end
 
 class Alarm < Sequel::Model
@@ -14,4 +15,9 @@ class Alarm < Sequel::Model
   # first_sha
   # second_sha
   # status
+end
+
+class User < Sequel::Model
+  # github_id
+  # github_login
 end
