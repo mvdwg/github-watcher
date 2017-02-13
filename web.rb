@@ -45,9 +45,10 @@ get '/auth/github/callback' do
 
   github_id = auth_hash['uid']
   github_login =  auth_hash['info']['nickname']
+  email = auth_hash['info']['email']
 
   user = User.find_or_create(github_id: github_id)
-  user.update(github_login: github_login)
+  user.update(github_login: github_login, email: email)
 
   session[:user_id] = user.id
 

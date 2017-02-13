@@ -9,6 +9,7 @@ class Alert < Sequel::Model
   # path
   # user_id
   one_to_many :alarms
+  many_to_one :user
 end
 
 class Alarm < Sequel::Model
@@ -16,6 +17,7 @@ class Alarm < Sequel::Model
   # first_sha
   # second_sha
   # status
+   many_to_one :alert
 end
 
 class User < Sequel::Model
