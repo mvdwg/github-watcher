@@ -25,8 +25,8 @@
   <input type="submit">
 </form>
 
-<h1> Alerts </h1>
 <% @current_user.alerts.each do |alert| %>
+  <h1> Alert #<%= alert.id %> </h1>
   <p><%= alert.values %> </p>
   <% if alert.alarms.any? %>
     <h2> Alarms </h2>
