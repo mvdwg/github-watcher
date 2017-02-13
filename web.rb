@@ -7,6 +7,16 @@ require "./client"
 
 require "omniauth-github"
 
+if ENV["BUGSNAG_API_KEY"]
+  require "bugsnag"
+
+  Bugsnag.configure do |config|
+    config.api_key = ENV["BUGSNAG_API_KEY"]
+  end
+
+  use Bugsnag::Rack
+  enable :raise_errors
+end
 
 use Rack::Session::Cookie, secret: ENV["SECRET"]
 use OmniAuth::Strategies::GitHub, ENV["CLIENT_ID"], ENV["CLIENT_SECRET"]

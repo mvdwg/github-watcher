@@ -3,6 +3,7 @@ GEM
   specs:
     addressable (2.5.0)
       public_suffix (~> 2.0, >= 2.0.2)
+    bugsnag (5.0.1)
     dotenv (2.2.0)
     faraday (0.11.0)
       multipart-post (>= 1.2, < 3)
@@ -53,6 +54,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bugsnag
   dotenv
   octokit
   omniauth-github
