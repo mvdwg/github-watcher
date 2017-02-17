@@ -1,4 +1,5 @@
 require 'dotenv/load'
+require 'postmark'
 
 require './models'
 require './client'
@@ -21,7 +22,6 @@ class Job
       end
 
       alert.update(last_sha: current_sha)
-
     end
   end
 
