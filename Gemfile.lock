@@ -12,14 +12,19 @@ GEM
     json (2.0.3)
     jwt (0.1.13)
       multi_json (>= 1.5)
+    mini_portile2 (2.1.0)
     multi_json (1.12.1)
     multipart-post (2.0.0)
+    nokogiri (1.6.8.1)
+      mini_portile2 (~> 2.1.0)
     oauth2 (0.8.1)
       faraday (~> 0.8)
       httpauth (~> 0.1)
       jwt (~> 0.1.4)
       multi_json (~> 1.0)
       rack (~> 1.2)
+    octicons (3.0.1)
+      nokogiri (>= 1.6.3.1)
     octokit (4.6.2)
       sawyer (~> 0.8.0, >= 0.5.3)
     omniauth (1.5.0)
@@ -56,6 +61,7 @@ PLATFORMS
 DEPENDENCIES
   bugsnag
   dotenv
+  octicons
   octokit
   omniauth-github
   pg

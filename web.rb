@@ -6,6 +6,7 @@ require "./models"
 require "./client"
 
 require "omniauth-github"
+require "octicons"
 
 if ENV["BUGSNAG_API_KEY"]
   require "bugsnag"
@@ -72,3 +73,10 @@ end
 def authenticated?
   authenticate
 end
+
+# View helpers
+
+def icon(name, size)
+  Octicons::Octicon.new(name, width: size).to_svg
+end
+

@@ -9,3 +9,4 @@ gem "dotenv"
 gem "omniauth-github"
 gem "postmark"
 gem "bugsnag"
+gem 'octicons'
